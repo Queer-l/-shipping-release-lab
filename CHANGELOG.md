@@ -1,7 +1,8 @@
 # Changelog
 
 ## Unreleased
-- 新增VIP类型支持，满99.00免运费；STANDARD门槛仍为199.00。
+- Add VIP customer tier with a free-shipping threshold of 99.00.
+- Preserve STANDARD free shipping at and above 199.00.
 
 ## 1.2.0
-- 支持STANDARD满199.00免运费，否则15.00；VIP不受支持。
+- Support STANDARD orders: free shipping at and above 199.00, otherwise 15.00.
