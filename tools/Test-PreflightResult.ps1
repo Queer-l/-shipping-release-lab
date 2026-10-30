@@ -26,7 +26,7 @@
         $style = New-Object System.Xml.XmlDocument
         $style.XmlResolver = $null
         $style.Load((Join-Path $ProjectRoot 'target/checkstyle-result.xml'))
-        if ($style.SelectNodes('/checkstyle/file/error').Count -ne 0 -or $LogText -notmatch 'maven-checkstyle-plugin:.*:check.*java-style-gate') { throw '未确认默认Checkstyle门禁执行且零违规。' }
+        if ($style.SelectNodes('/checkstyle/file/error').Count -ne 0 -or $LogText -notmatch '--- checkstyle:.*:check \(java-style-gate\)') { throw '未确认默认Checkstyle门禁执行且零违规。' }
         # Read XML without resolving external DTDs or downloading resources.
         $coverage = New-Object System.Xml.XmlDocument
         $coverage.XmlResolver = $null
