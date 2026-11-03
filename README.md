@@ -25,6 +25,6 @@ JUnit验证断言；Checkstyle检查main/test Java文件中的Tab及行尾空白
 ## 合并、发布与提交
 个人复核修复后完整Commit及三项检查单，通过后Squash合并到main。将POM的1.3.0-SNAPSHOT准备为1.3.0，整理CHANGELOG，更新下面JAR运行命令并提交。干净main执行完整verify与三条CLI验证后打v1.3.0，再复制同一JAR到../release，核对SHA-256和副本运行，不重新构建替换交付文件。
 ```powershell
-java -cp target/shipping-release-lab-1.3.0-SNAPSHOT.jar edu.course.shipping.Main 99.00 VIP
+java -cp target/shipping-release-lab-1.3.0.jar edu.course.shipping.Main 99.00 VIP
 ```
 只交一个学号_L08.zip：完整shipping-release-lab（含.git）与并列release目录（JAR、RELEASE_RECORD.md）。记录模板复制到仓库外填写。不另交报告、截图、日志或在线CI证据。具体步骤以学生任务书为准。
