@@ -1,7 +1,6 @@
 package edu.course.shipping;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
@@ -9,9 +8,8 @@ class ShippingCalculatorTest {
     private final ShippingCalculator calculator = new ShippingCalculator();
 
     @Test
-    void unsupportedVipTierIsRejected() {
-        assertThrows(IllegalArgumentException.class,
-                () -> calculator.shippingFee(new Order(new BigDecimal("120.00"), "VIP")));
+    void vipOrderAboveThresholdGetsFreeShipping() {
+        assertFee("120.00", "VIP", "0");
     }
 
     @Test
