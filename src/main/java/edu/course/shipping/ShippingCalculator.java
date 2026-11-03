@@ -11,11 +11,11 @@ public final class ShippingCalculator {
     public BigDecimal shippingFee(Order order) {
         Objects.requireNonNull(order, "order");
         // TODO-P: first add tests that expose risk; then fix these comparisons.
-        if (order.customerTier() == "VIP"
-                && order.total().compareTo(VIP_FREE) > 0) {
+        if (order.customerTier().equals("VIP")
+                && order.total().compareTo(VIP_FREE) >= 0) {
             return BigDecimal.ZERO;
         }
-        if (order.total().compareTo(STANDARD_FREE) > 0) {
+        if (order.total().compareTo(STANDARD_FREE) >= 0) {
             return BigDecimal.ZERO;
         }
         return NORMAL_FEE;
