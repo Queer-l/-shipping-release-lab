@@ -20,7 +20,10 @@ JUnit验证断言；Checkstyle检查main/test Java文件中的Tab及行尾空白
 
 课堂临时在Main.java打印行末尾加入空格，运行checkstyle:check定位失败，删除后复查通过；IDE清理行尾空格时可输入真实Tab。不要把字符“\t”当作Tab。Main.java恢复后无需提交临时错误。报告：target/checkstyle-result.xml、target/site/jacoco/index.html、target/spotbugsXml.xml。前项失败时后项可能未执行，未执行不算通过。
 
-本地运行属于自动化质量检查，CI仅作概念介绍，不提供在线工作流或远程任务。
+本地运行属于自动化质量检查；本扩展另在 GitHub Actions 提供在线工作流。
+
+## 在线质量检查（GitHub Actions）
+推送 `main` 或 `feature/vip-shipping`、提交 Pull Request，或在 Actions 页面手动触发（workflow_dispatch）时，工作流执行 `mvn -B clean verify`，覆盖 JUnit、Checkstyle、JaCoCo 与 SpotBugs。发布步骤仅在创建 Release 时运行。
 
 ## 合并、发布与提交
 个人复核修复后完整Commit及三项检查单，通过后Squash合并到main。将POM的1.3.0-SNAPSHOT准备为1.3.0，整理CHANGELOG，更新下面JAR运行命令并提交。干净main执行完整verify与三条CLI验证后打v1.3.0，再复制同一JAR到../release，核对SHA-256和副本运行，不重新构建替换交付文件。
